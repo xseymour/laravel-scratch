@@ -34,10 +34,17 @@
  * changes in place and continue communications and repeat the cycle
  */
 
+//Route Model Binding
+
+//Route::model('song', 'App\Model\Song'); //Match on primary key
+Route::bind('song', function($slug){ //Match on any resolution logic
+    return \App\Model\Song::whereSlug($slug)->first();
+});
+
 Route::get('songs', 'SongsController@index');
-//Alternate ways to write. DOES NOT AUTOCOMPLETE, USE FACADES
-//$router->get('/', 'SongsController@index');
-//get('/', 'SongsController@index');
-Route::get('songs/{id}', 'SongsController@show');
+
+Route::get('songs/{song}', 'SongsController@show');
+
+Route::get('songs/{song}/edit', 'SongsController@edit');
 
 
