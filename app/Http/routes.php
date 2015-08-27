@@ -34,6 +34,12 @@
  * changes in place and continue communications and repeat the cycle
  */
 
-Route::get('/', 'PagesController@index');
+Route::get('songs', 'SongsController@index');
+//Alternate ways to write. DOES NOT AUTOCOMPLETE, USE FACADES
+//$router->get('/', 'SongsController@index');
+//get('/', 'SongsController@index');
+
+
+Route::get('songs/{id}', 'SongsController@show');
 
 
