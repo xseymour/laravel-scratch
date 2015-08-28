@@ -2,12 +2,14 @@
 
 @section('content')
 
-    <h1>Official Fanclub</h1>
-
-    @foreach($songs as $song)
-        <li>
-            <a href="/songs/{{$song->slug}}">{{$song->title}}</a></li>
-    @endforeach
-
+    @if(!empty($songs))
+        <ul>
+            @foreach($songs as $song)
+                <li>
+                    <a href="/songs/{{$song->slug}}">{{$song->title}}</a>
+                </li>
+            @endforeach
+        </ul>
+    @endif
 
 @stop

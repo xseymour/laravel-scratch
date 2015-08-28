@@ -11,6 +11,10 @@
     <!--add js here-->
 </head>
 <body>
+<div class="container">
+    <h1>Official Fanclub</h1>
     @yield('content')
+</div>
+
 </body>
 </html>

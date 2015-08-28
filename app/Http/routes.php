@@ -47,4 +47,6 @@ Route::get('songs/{song}', 'SongsController@show');
 
 Route::get('songs/{song}/edit', 'SongsController@edit');
 
+Route::patch('songs/{song}', 'SongsController@update');
+
 
