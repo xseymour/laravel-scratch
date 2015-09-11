@@ -41,21 +41,21 @@ Route::bind('songs', function($slug){ //Match on any resolution logic
     return \App\Model\Song::whereSlug($slug)->first();
 });
 
+//Hard Coded
+//Route::get('songs', ['as' => 'songs_path', 'uses' => 'SongsController@index']);
+//Route::get('songs/{songs}', ['as' => 'song_path', 'uses' => 'SongsController@show']);
+//Route::get('songs/{songs}/edit', ['as' => 'song_edit_path', 'uses' => 'SongsController@edit']);
+
+
 //view all routes using php artisan route:list
 Route::resource('songs', 'SongsController', [
 
-    //only the following
-    'only' => [
-        'index', 'show', 'edit', 'update'
+    'names' =>[
+
+        'index' => 'songs_path',
+        'show'  => 'song_path',
+        'edit'  => 'song_edit_path'
     ]
 
-    //all but the following
-//    'except' => [
-//        'create'
-//    ]
-
 ]);
-
-
-Route::resource('people', 'PeopleController');
 
