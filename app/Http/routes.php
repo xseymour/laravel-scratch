@@ -37,16 +37,25 @@
 //Route Model Binding
 
 //Route::model('song', 'App\Model\Song'); //Match on primary key
-Route::bind('song', function($slug){ //Match on any resolution logic
+Route::bind('songs', function($slug){ //Match on any resolution logic
     return \App\Model\Song::whereSlug($slug)->first();
 });
 
-Route::get('songs', 'SongsController@index');
+//view all routes using php artisan route:list
+Route::resource('songs', 'SongsController', [
 
-Route::get('songs/{song}', 'SongsController@show');
+    //only the following
+    'only' => [
+        'index', 'show', 'edit', 'update'
+    ]
 
-Route::get('songs/{song}/edit', 'SongsController@edit');
+    //all but the following
+//    'except' => [
+//        'create'
+//    ]
 
-Route::patch('songs/{song}', 'SongsController@update');
+]);
 
+
+Route::resource('people', 'PeopleController');
 
