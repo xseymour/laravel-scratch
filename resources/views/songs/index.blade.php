@@ -14,5 +14,6 @@
             @endforeach
         </ul>
     @endif
+    {!! Html::linkRoute('songs.create', 'Create New Song', [], ['class' => 'btn btn-primary']) !!}
 
 @stop

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\CreateSongRequest;
 use App\Model\Song;
 use Illuminate\Http\Request;
 use Redirect;
@@ -56,8 +57,13 @@ class SongsController extends Controller
         return view('songs.create');
     }
 
-    public function store(Request $request, Song $song)
+    public function store(CreateSongRequest $request, Song $song)
     {
+        //in method authentication
+//        $this->validate($request, [
+//            'title'     => 'required',
+//            'slug'      => 'required|unique:song,slug'
+//        ]);
         $song->create($request->all());
         return Redirect::route('songs.index');
     }
