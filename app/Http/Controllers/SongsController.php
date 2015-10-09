@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Song;
 use Illuminate\Http\Request;
+use Redirect;
 
 /**
  * Class SongsController
@@ -44,6 +45,21 @@ class SongsController extends Controller
     {
 //        $song = Song::whereSlug($slug)->first();
         return view('songs.show', compact('song'));
+    }
+
+    /**
+     * Show a form to create a new Song
+     * @return \Illuminate\View\View
+     */
+    public function create()
+    {
+        return view('songs.create');
+    }
+
+    public function store(Request $request, Song $song)
+    {
+        $song->create($request->all());
+        return Redirect::route('songs.index');
     }
 
     /**

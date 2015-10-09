@@ -7,8 +7,8 @@
             @foreach($songs as $song)
                 <li>
 
-                    {!! Html::linkRoute('song_path', $song->title, [$song->slug]) !!}
-                    {{--<a href={{ route('song_path', [$song->slug]) }}>{{$song->title}}</a>--}}
+                    {!! Html::linkRoute('songs.show', $song->title, [$song->slug]) !!}
+                    {{--<a href={{ route('songs.show', [$song->slug]) }}>{{$song->title}}</a>--}}
 
                 </li>
             @endforeach

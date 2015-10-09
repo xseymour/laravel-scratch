@@ -42,20 +42,11 @@ Route::bind('songs', function($slug){ //Match on any resolution logic
 });
 
 //Hard Coded
-//Route::get('songs', ['as' => 'songs_path', 'uses' => 'SongsController@index']);
-//Route::get('songs/{songs}', ['as' => 'song_path', 'uses' => 'SongsController@show']);
-//Route::get('songs/{songs}/edit', ['as' => 'song_edit_path', 'uses' => 'SongsController@edit']);
+//Route::get('songs', ['as' => 'songs.index', 'uses' => 'SongsController@index']);
+//Route::get('songs/{songs}', ['as' => 'songs.show', 'uses' => 'SongsController@show']);
+//Route::get('songs/{songs}/edit', ['as' => 'songs.edit', 'uses' => 'SongsController@edit']);
 
 
 //view all routes using php artisan route:list
-Route::resource('songs', 'SongsController', [
-
-    'names' =>[
-
-        'index' => 'songs_path',
-        'show'  => 'song_path',
-        'edit'  => 'song_edit_path'
-    ]
-
-]);
+Route::resource('songs', 'SongsController');
 
